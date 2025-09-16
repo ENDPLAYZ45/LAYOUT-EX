@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWaste - Navigation</title>
+    <link rel="stylesheet" href="../styles/globals.css">
+</head>
+<body>
+    <!-- Navigation Component -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="flex justify-between items-center" style="height: 4rem;">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center gap-2">
+                        <div class="bg-gradient-success rounded-lg flex items-center justify-center" style="width: 2rem; height: 2rem;">
+                            <svg class="text-white" style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold gradient-text">EcoWaste</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="/" class="nav-link active">
+                        <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                    <a href="/dashboard" class="nav-link">
+                        <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="/leaderboard" class="nav-link">
+                        <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        <span>Leaderboard</span>
+                    </a>
+                    
+                    <!-- User Menu -->
+                    <div class="flex items-center gap-4 pl-4" style="border-left: 1px solid var(--gray-300);">
+                        <div class="text-sm">
+                            <p class="font-medium text-gray-900">John Citizen</p>
+                            <p class="text-gray-500">Citizen</p>
+                        </div>
+                        <button class="logout-btn">
+                            <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                            </svg>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
+                        <svg id="menu-icon" style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="close-icon" class="hidden" style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white" style="border-top: 1px solid var(--gray-200);">
+            <div class="px-2 pt-2 pb-3 gap-1" style="display: flex; flex-direction: column;">
+                <a href="/" class="mobile-nav-link active">
+                    <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    <span>Home</span>
+                </a>
+                <a href="/dashboard" class="mobile-nav-link">
+                    <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/leaderboard" class="mobile-nav-link">
+                    <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    <span>Leaderboard</span>
+                </a>
+                
+                <div class="pt-4" style="border-top: 1px solid var(--gray-200);">
+                    <div class="px-3 py-2">
+                        <p class="font-medium text-gray-900">John Citizen</p>
+                        <p class="text-sm text-gray-500">Citizen</p>
+                    </div>
+                    <button class="mobile-logout-btn">
+                        <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013 3v1"></path>
+                        </svg>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+            padding: var(--space-3) var(--space-3);
+            border-radius: var(--radius-lg);
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--green-600);
+            background-color: var(--green-50);
+        }
+
+        .nav-link.active {
+            background-color: var(--green-100);
+            color: var(--green-700);
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3);
+            border-radius: var(--radius-lg);
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--green-600);
+            background-color: var(--green-50);
+        }
+
+        .mobile-nav-link.active {
+            background-color: var(--green-100);
+            color: var(--green-700);
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+            color: var(--gray-600);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+
+        .logout-btn:hover {
+            color: var(--red-600);
+        }
+
+        .mobile-logout-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3);
+            color: var(--gray-600);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color var(--transition-fast);
+            width: 100%;
+            text-align: left;
+        }
+
+        .mobile-logout-btn:hover {
+            color: var(--red-600);
+        }
+    </style>
+
+    <script src="../scripts/navbar.js"></script>
+</body>
+</html>

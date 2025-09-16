@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWaste - Citizen Dashboard</title>
+    <link rel="stylesheet" href="../styles/globals.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="flex justify-between items-center" style="height: 4rem;">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center gap-2">
+                        <div class="bg-gradient-success rounded-lg flex items-center justify-center" style="width: 2rem; height: 2rem;">
+                            <svg class="text-white" style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold gradient-text">EcoWaste</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/dashboard" class="nav-link active">Dashboard</a>
+                    <a href="/leaderboard" class="nav-link">Leaderboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="min-h-screen bg-gray-50 py-8">
+        <div class="container">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">
+                    Welcome back, John Citizen!
+                </h1>
+                <p class="text-gray-600 mt-2">
+                    Help keep Zone A clean and earn points for your contributions.
+                </p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-gradient-stats p-3 rounded-lg">
+                            <svg class="text-white" style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-600 text-sm font-medium mb-1">Your Points</h3>
+                        <p class="text-2xl font-bold text-gray-900">150</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-gradient-premium p-3 rounded-lg">
+                            <svg class="text-white" style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-600 text-sm font-medium mb-1">Feedback Given</h3>
+                        <p class="text-2xl font-bold text-gray-900">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-gradient-success p-3 rounded-lg">
+                            <svg class="text-white" style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-600 text-sm font-medium mb-1">Zone Rank</h3>
+                        <p class="text-2xl font-bold text-gray-900">#3</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-gradient-alert p-3 rounded-lg">
+                            <svg class="text-white" style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-600 text-sm font-medium mb-1">Nearby Bins</h3>
+                        <p class="text-2xl font-bold text-gray-900">4</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Map Section -->
+                <div class="lg:col-span-2">
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold text-gray-900">Nearby Waste Bins</h2>
+                            <button
+                                id="feedback-btn"
+                                class="btn btn-primary"
+                            >
+                                <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                <span>Give Feedback</span>
+                            </button>
+                        </div>
+                        
+                        <div id="map" style="height: 24rem; border-radius: var(--radius-lg); overflow: hidden;"></div>
+
+                        <!-- Map Legend -->
+                        <div class="mt-4 flex flex-wrap gap-4 text-sm">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                <span>Low Fill (<50%)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+                                <span>Medium Fill (50-70%)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                <span>High Fill (70-90%)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <span>Overflow (>90%)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 bg-gray-500 rounded-full"></div>
+                                <span>Maintenance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+                    <!-- Recent Feedback -->
+                    <div class="card">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Recent Feedback</h3>
+                        
+                        <div id="feedback-list" class="text-gray-500 text-center py-4">
+                            No feedback given yet. Help improve your neighborhood by providing feedback!
+                        </div>
+                    </div>
+
+                    <!-- Achievements -->
+                    <div class="card">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Your Achievements</h3>
+                        
+                        <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                            <div class="flex items-center gap-3 p-3 bg-yellow-50 rounded-lg">
+                                <div class="bg-yellow-500 rounded-full flex items-center justify-center" style="width: 2rem; height: 2rem;">
+                                    🌟
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Feedback Champion</p>
+                                    <p class="text-sm text-gray-600">Submitted 5+ feedback reports</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                                <div class="bg-green-500 rounded-full flex items-center justify-center" style="width: 2rem; height: 2rem;">
+                                    🏆
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Zone Guardian</p>
+                                    <p class="text-sm text-gray-600">Top contributor in your zone</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div id="feedback-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="flex items-center justify-between p-6" style="border-bottom: 1px solid var(--gray-200);">
+                <h2 class="text-xl font-bold text-gray-900">Feedback for Bin <span id="modal-bin-id">BIN001</span></h2>
+                <button
+                    id="close-modal"
+                    class="text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                    <svg style="width: 1.5rem; height: 1.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <form id="feedback-form" class="p-6">
+                <div class="mb-6">
+                    <p class="text-sm text-gray-600 mb-2">Location: <span id="modal-bin-location">123 Main St, New York, NY</span></p>
+                    <p class="text-sm text-gray-600">Current Fill Level: <span id="modal-bin-fill">85</span>%</p>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Rate the cleanliness and condition
+                    </label>
+                    <div class="flex gap-1" id="star-rating">
+                        <button type="button" class="star-btn transition-transform hover:scale-110" data-rating="1">
+                            <svg class="star-icon" style="width: 2rem; height: 2rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                            </svg>
+                        </button>
+                        <button type="button" class="star-btn transition-transform hover:scale-110" data-rating="2">
+                            <svg class="star-icon" style="width: 2rem; height: 2rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                            </svg>
+                        </button>
+                        <button type="button" class="star-btn transition-transform hover:scale-110" data-rating="3">
+                            <svg class="star-icon" style="width: 2rem; height: 2rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                            </svg>
+                        </button>
+                        <button type="button" class="star-btn transition-transform hover:scale-110" data-rating="4">
+                            <svg class="star-icon" style="width: 2rem; height: 2rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                            </svg>
+                        </button>
+                        <button type="button" class="star-btn transition-transform hover:scale-110" data-rating="5">
+                            <svg class="star-icon" style="width: 2rem; height: 2rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="comment" class="block text-sm font-medium text-gray-700 mb-2">
+                        Additional Comments (Optional)
+                    </label>
+                    <textarea
+                        id="comment"
+                        rows="4"
+                        class="input"
+                        style="resize: none;"
+                        placeholder="Share your thoughts about this bin's condition, surrounding area cleanliness, or any issues..."
+                    ></textarea>
+                </div>
+
+                <div class="flex gap-3">
+                    <button
+                        type="button"
+                        id="cancel-feedback"
+                        class="btn btn-secondary flex-1"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="submit"
+                        id="submit-feedback"
+                        class="btn btn-primary flex-1"
+                        disabled
+                    >
+                        <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                        <span>Submit Feedback</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .nav-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            padding: var(--space-3);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--green-600);
+            background-color: var(--green-50);
+        }
+
+        .nav-link.active {
+            background-color: var(--green-100);
+            color: var(--green-700);
+        }
+
+        .star-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .star-icon {
+            color: var(--gray-300);
+            transition: color var(--transition-fast);
+        }
+
+        .star-btn:hover .star-icon,
+        .star-btn.active .star-icon {
+            color: var(--yellow-400);
+            fill: currentColor;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+</body>
+</html>
