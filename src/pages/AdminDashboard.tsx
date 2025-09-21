@@ -227,9 +227,9 @@ const AdminDashboard: React.FC = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Feedback</h3>
             <div className="space-y-3">
               {feedback.slice(0, 3).map((item) => (
-                <div key={item._id} className="p-3 bg-gray-50 rounded-lg">
+                <div key={item.id} className="p-3 bg-gray-50 rounded-lg">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-medium">Bin {bins.find(b => b._id === item.binId)?.binId}</span>
+                    <span className="text-sm font-medium">Bin {bins.find(b => b.id === item.binId)?.binId}</span>
                     <div className="flex text-yellow-400">
                       {Array.from({ length: item.rating }).map((_, i) => (
                         <span key={i} className="text-xs">⭐</span>

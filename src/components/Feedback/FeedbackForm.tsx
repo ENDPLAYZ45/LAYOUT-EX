@@ -18,7 +18,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ bin, isOpen, onClose, onSub
     e.preventDefault();
     if (bin && rating > 0) {
       onSubmit({
-        binId: bin._id,
+        binId: bin.id,
         rating,
         comment,
       });

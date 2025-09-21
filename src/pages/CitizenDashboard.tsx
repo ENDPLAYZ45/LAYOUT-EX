@@ -171,9 +171,9 @@ const CitizenDashboard: React.FC = () => {
               {recentFeedback.length > 0 ? (
                 <div className="space-y-3">
                   {recentFeedback.map((feedback) => (
-                    <div key={feedback._id} className="p-3 bg-gray-50 rounded-lg">
+                    <div key={feedback.id} className="p-3 bg-gray-50 rounded-lg">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-medium">Bin {bins.find(b => b._id === feedback.binId)?.binId}</span>
+                        <span className="text-sm font-medium">Bin {bins.find(b => b.id === feedback.binId)?.binId}</span>
                         <div className="flex text-yellow-400">
                           {Array.from({ length: feedback.rating }).map((_, i) => (
                             <span key={i}>⭐</span>

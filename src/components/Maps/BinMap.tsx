@@ -56,7 +56,7 @@ const BinMap: React.FC<BinMapProps> = ({
           
           return (
             <CircleMarker
-              key={bin._id}
+              key={bin.id}
               center={[bin.location.lat, bin.location.lng]}
               radius={8}
               pathOptions={{

@@ -10,7 +10,7 @@ const Leaderboard: React.FC = () => {
     // Mock data - replace with actual API call
     const mockLeaderboard: LeaderboardEntry[] = [
       {
-        _id: '1',
+        id: '1',
         zone: 'Zone A - Manhattan Central',
         cleanlinessScore: 94,
         lastUpdated: new Date(),
@@ -18,7 +18,7 @@ const Leaderboard: React.FC = () => {
         rank: 1
       },
       {
-        _id: '2',
+        id: '2',
         zone: 'Zone B - Brooklyn Heights',
         cleanlinessScore: 91,
         lastUpdated: new Date(),
@@ -26,7 +26,7 @@ const Leaderboard: React.FC = () => {
         rank: 2
       },
       {
-        _id: '3',
+        id: '3',
         zone: 'Zone C - Queens Park',
         cleanlinessScore: 88,
         lastUpdated: new Date(),
@@ -34,7 +34,7 @@ const Leaderboard: React.FC = () => {
         rank: 3
       },
       {
-        _id: '4',
+        id: '4',
         zone: 'Zone D - Bronx River',
         cleanlinessScore: 85,
         lastUpdated: new Date(),
@@ -42,7 +42,7 @@ const Leaderboard: React.FC = () => {
         rank: 4
       },
       {
-        _id: '5',
+        id: '5',
         zone: 'Zone E - Staten Island',
         cleanlinessScore: 82,
         lastUpdated: new Date(),
@@ -50,7 +50,7 @@ const Leaderboard: React.FC = () => {
         rank: 5
       },
       {
-        _id: '6',
+        id: '6',
         zone: 'Zone F - Upper West Side',
         cleanlinessScore: 79,
         lastUpdated: new Date(),
@@ -58,7 +58,7 @@ const Leaderboard: React.FC = () => {
         rank: 6
       },
       {
-        _id: '7',
+        id: '7',
         zone: 'Zone G - Financial District',
         cleanlinessScore: 76,
         lastUpdated: new Date(),
@@ -66,7 +66,7 @@ const Leaderboard: React.FC = () => {
         rank: 7
       },
       {
-        _id: '8',
+        id: '8',
         zone: 'Zone H - Williamsburg',
         cleanlinessScore: 73,
         lastUpdated: new Date(),
@@ -137,7 +137,7 @@ const Leaderboard: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           {leaderboard.slice(0, 3).map((entry, index) => (
             <div
-              key={entry._id}
+              key={entry.id}
               className={`relative bg-white rounded-xl shadow-lg p-6 text-center border-2 ${
                 index === 0 ? 'border-yellow-300 transform scale-105' :
                 index === 1 ? 'border-gray-300' :
@@ -183,7 +183,7 @@ const Leaderboard: React.FC = () => {
           <div className="divide-y divide-gray-200">
             {leaderboard.map((entry) => (
               <div
-                key={entry._id}
+                key={entry.id}
                 className="px-6 py-4 hover:bg-gray-50 transition-colors"
               >
                 <div className="flex items-center justify-between">
