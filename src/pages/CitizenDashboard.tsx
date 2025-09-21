@@ -17,7 +17,7 @@ const CitizenDashboard: React.FC = () => {
   useEffect(() => {
     const mockBins: Bin[] = [
       {
-        _id: '1',
+        id: '1',
         binId: 'BIN001',
         location: { lat: 40.7128, lng: -74.0060, address: '123 Main St, New York, NY' },
         fillLevel: 85,
@@ -27,7 +27,7 @@ const CitizenDashboard: React.FC = () => {
         capacity: 100
       },
       {
-        _id: '2',
+        id: '2',
         binId: 'BIN002',
         location: { lat: 40.7580, lng: -73.9855, address: '456 Park Ave, New York, NY' },
         fillLevel: 95,
@@ -37,7 +37,7 @@ const CitizenDashboard: React.FC = () => {
         capacity: 100
       },
       {
-        _id: '3',
+        id: '3',
         binId: 'BIN003',
         location: { lat: 40.7505, lng: -73.9934, address: '789 Broadway, New York, NY' },
         fillLevel: 45,
@@ -47,7 +47,7 @@ const CitizenDashboard: React.FC = () => {
         capacity: 100
       },
       {
-        _id: '4',
+        id: '4',
         binId: 'BIN004',
         location: { lat: 40.7282, lng: -73.7949, address: '321 Queens Blvd, Queens, NY' },
         fillLevel: 78,
@@ -71,8 +71,8 @@ const CitizenDashboard: React.FC = () => {
     
     // Add to recent feedback
     const newFeedback: Feedback = {
-      _id: Date.now().toString(),
-      userId: user?._id || '',
+      id: Date.now().toString(),
+      userId: user?.id || '',
       binId: feedback.binId,
       rating: feedback.rating,
       comment: feedback.comment,

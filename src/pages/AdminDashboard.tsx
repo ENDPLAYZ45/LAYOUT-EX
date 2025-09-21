@@ -12,7 +12,7 @@ const AdminDashboard: React.FC = () => {
     // Mock data - replace with actual API calls
     const mockBins: Bin[] = [
       {
-        _id: '1',
+        id: '1',
         binId: 'BIN001',
         location: { lat: 40.7128, lng: -74.0060, address: '123 Main St' },
         fillLevel: 85,
@@ -22,7 +22,7 @@ const AdminDashboard: React.FC = () => {
         capacity: 100
       },
       {
-        _id: '2',
+        id: '2',
         binId: 'BIN002',
         location: { lat: 40.7580, lng: -73.9855, address: '456 Park Ave' },
         fillLevel: 95,
@@ -37,7 +37,7 @@ const AdminDashboard: React.FC = () => {
 
     const mockFeedback: Feedback[] = [
       {
-        _id: '1',
+        id: '1',
         userId: '1',
         binId: '1',
         rating: 4,
@@ -46,7 +46,7 @@ const AdminDashboard: React.FC = () => {
         status: 'reviewed'
       },
       {
-        _id: '2',
+        id: '2',
         userId: '2',
         binId: '2',
         rating: 2,

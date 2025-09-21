@@ -1,5 +1,5 @@
 export interface User {
-  _id: string;
+  id: string;
   name: string;
   email: string;
   role: 'citizen' | 'admin' | 'collector';
@@ -8,7 +8,7 @@ export interface User {
 }
 
 export interface Bin {
-  _id: string;
+  id: string;
   binId: string;
   location: {
     lat: number;
@@ -23,7 +23,7 @@ export interface Bin {
 }
 
 export interface Feedback {
-  _id: string;
+  id: string;
   userId: string;
   binId: string;
   rating: number;
@@ -33,7 +33,7 @@ export interface Feedback {
 }
 
 export interface LeaderboardEntry {
-  _id: string;
+  id: string;
   zone: string;
   cleanlinessScore: number;
   lastUpdated: Date;
@@ -42,7 +42,7 @@ export interface LeaderboardEntry {
 }
 
 export interface Route {
-  _id: string;
+  id: string;
   truckId: string;
   routePoints: Array<{
     binId: string;
